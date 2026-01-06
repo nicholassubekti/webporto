@@ -1,0 +1,1017 @@
+.project-links {
+                flex-direction: column;
+            }
+
+            .project-link {
+                width: 100%;
+            }<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Samuel Nicholas Subekti</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --secondary: #8b5cf6;
+            --accent: #ec4899;
+            --dark: #0f172a;
+            --darker: #020617;
+            --light: #1e293b;
+            --text: #f1f5f9;
+            --text-light: #cbd5e1;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--darker);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(99, 102, 241, 0.2);
+            border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(236, 72, 153, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(99, 102, 241, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(139, 92, 246, 0.3) 0%, transparent 50%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: white;
+            text-shadow: 0 5px 30px rgba(0,0,0,0.3);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s forwards 0.2s;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: rgba(255,255,255,0.95);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s forwards 0.4s;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 35px;
+            background: white;
+            color: var(--secondary);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s forwards 0.6s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            margin: 20px auto;
+            border-radius: 3px;
+        }
+
+        /* About Section */
+        .about {
+            background: linear-gradient(180deg, var(--darker) 0%, var(--dark) 100%);
+            position: relative;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 80% 20%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 20% 80%, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            color: var(--text-light);
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .skill-item {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .skill-item:hover {
+            transform: translateX(10px);
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.2));
+            border-color: rgba(99, 102, 241, 0.4);
+        }
+
+        .about-img-wrapper {
+            width: 100%;
+            height: 450px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 5rem;
+            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-img-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        .profile-img {
+            width: 90%;
+            height: 90%;
+            object-fit: contain;
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Projects Section */
+        .projects {
+            background: linear-gradient(180deg, var(--dark) 0%, var(--darker) 100%);
+            position: relative;
+        }
+
+        .projects::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.8));
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            transition: all 0.4s;
+            border: 1px solid rgba(99, 102, 241, 0.1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.3);
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+
+        .project-card:hover .project-image {
+            transform: scale(1.1);
+        }
+
+        .project-img::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+            z-index: 1;
+        }
+
+        .project-card:hover .project-img::before {
+            left: 100%;
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 10px 25px;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.2));
+            color: var(--text);
+            text-decoration: none;
+            border-radius: 25px;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .project-link:hover {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(139, 92, 246, 0.3));
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
+        }
+
+        .project-info {
+            padding: 2rem;
+        }
+
+        .project-info h3 {
+            margin-bottom: 0.8rem;
+            color: var(--text);
+            font-size: 1.4rem;
+        }
+
+        .project-info p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 0.7rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.2));
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            transition: all 0.3s;
+        }
+
+        .tag:hover {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(139, 92, 246, 0.3));
+            transform: translateY(-2px);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(180deg, var(--darker) 0%, var(--dark) 100%);
+            position: relative;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.1) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cv-card {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.5), rgba(15, 23, 42, 0.5));
+            padding: 4rem 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+
+        .cv-icon {
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .cv-card h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cv-card > p {
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .cv-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 2rem 0;
+            padding: 2rem;
+            background: rgba(15, 23, 42, 0.5);
+            border-radius: 15px;
+            border: 1px solid rgba(99, 102, 241, 0.1);
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.05rem;
+            color: var(--text-light);
+        }
+
+        .info-item .icon {
+            font-size: 1.5rem;
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 16px 50px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 1rem;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.5);
+        }
+
+        .download-btn:active {
+            transform: translateY(-2px);
+        }
+
+        .btn-icon {
+            font-size: 1.3rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .cv-note {
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            opacity: 0.7;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--darker);
+            color: var(--text);
+            text-align: center;
+            padding: 3rem 0;
+            border-top: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 2rem;
+            transition: all 0.3s;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        .social-links a:hover {
+            transform: translateY(-5px);
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.2));
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .skills{
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+                margin-top: 2rem;
+            }
+
+            @media (max-width: 768px) {
+                .skills {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .cv-card {
+                padding: 3rem 2rem;
+            }
+
+            .cv-icon {
+                font-size: 4rem;
+            }
+
+            .cv-card h3 {
+                font-size: 1.5rem;
+            }
+
+            .cv-info {
+                padding: 1.5rem;
+            }
+
+            .info-item {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Portfolio</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#download">Download CV</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Hello, I'm Samuel Nicholas Subekti</h1>
+            <p>Informatics Student | Data Analyst | Full-Stack Developer | Game Developer</p>
+            <a href="#projects" class="btn">View My Work</a>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title fade-in">About Me</h2>
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <p>I am a dedicated Informatics student with a deep interest in Data Analysis, Full-Stack Web Development, and Game Development. I am passionate about transforming lines of code into functional solutions and interactive digital experiences.</p>
+                    <p>As a team player, I believe that strong collaboration and effective communication are key for completing complex projects efficiently. I am always eager to learn new technologies and contribute to a dynamic team environment.</p>
+                    <div class="skills">
+                        <div class="skill-item">💻 C & C++</div>
+                        <div class="skill-item">🎮 C# (Unity)</div>
+                        <div class="skill-item">🐍 Python</div>
+                        <div class="skill-item">🗄️ MySQL</div>
+                        <div class="skill-item">🌐 HTML & CSS</div>
+                        <div class="skill-item">⚡ JavaScript</div>
+                        <div class="skill-item">🐘 PHP</div>
+                        <div class="skill-item">⚛️ React.js</div>
+                    </div>
+                </div>
+                <div class="fade-in">
+                    <div class="about-img-wrapper">
+                        <!-- GANTI URL DIBAWAH INI DENGAN FOTO ANDA -->
+                        <img src="WhatsApp Image 2025-12-27 at 8.48.40 AM.jpeg" alt="Profile Photo" class="profile-img">
+                        <!-- Contoh dengan foto lokal: <img src="img/profile.jpg" alt="Profile Photo" class="profile-img"> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title fade-in">My Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card fade-in">
+                    <div class="project-img">
+                        <img src="database.png" alt="Database Systems Project" class="project-image">
+                    </div>
+                    <div class="project-info">
+                        <h3>Database Systems Presentation Project</h3>
+                        <p>Comprehensive database project involving raw data processing and analysis using MySQL. Designed and implemented efficient database schemas, performed complex queries, and created data visualizations to present meaningful insights from large datasets.</p>
+                        <div class="project-tags">
+                            <span class="tag">MySQL</span>
+                            <span class="tag">Data Analysis</span>
+                            <span class="tag">SQL Queries</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="Data Analisis Presentasi Warna Hijau Kream Minimalis Simpel Geometri.pdf" target="_blank" class="project-link">
+                                <span class="link-icon">📄</span>
+                                Download PDF
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-img">
+                        <img src="mainmenu.png" alt="Game Development Project" class="project-image">
+                    </div>
+                    <div class="project-info">
+                        <h3>Game Development Final Exam Project</h3>
+                        <p>Developed a fully functional game application using C# and Unity engine. Features smooth gameplay mechanics, engaging user interface, optimized performance, and thorough bug testing to ensure a seamless gaming experience across different platforms.</p>
+                        <div class="project-tags">
+                            <span class="tag">C#</span>
+                            <span class="tag">Unity</span>
+                            <span class="tag">Game Design</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://joerscl.itch.io/cursed-priest" target="_blank" class="project-link">
+                                <span class="link-icon">🎮</span>
+                                Play Game
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-img">
+                        <img src="pti.jpg" alt="Tourism Website" class="project-image">
+                    </div>
+                    <div class="project-info">
+                        <h3>Internet Technology Final Exam Project</h3>
+                        <p>Created an attractive and responsive promotional website for tourist destinations using modern web technologies. Implemented interactive features, image galleries, booking systems, and optimized user experience with Laravel backend framework.</p>
+                        <div class="project-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Laravel</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://ptibali.vercel.app/" target="_blank" class="project-link">
+                                <span class="link-icon">🌐</span>
+                                Visit Website
+                            </a>
+                            <a href="https://github.com/davidgrcias/ptibali" target="_blank" class="project-link secondary">
+                                <span class="link-icon">💻</span>
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-img">
+                        <img src="profun.jpg" alt="Quiz Program" class="project-image">
+                    </div>
+                    <div class="project-info">
+                        <h3>Programming Fundamentals Final Exam</h3>
+                        <p>Developed a terminal-based quiz application using C language. Demonstrates strong understanding of programming fundamentals and logic.</p>
+                        <div class="project-tags">
+                            <span class="tag">C</span>
+                            <span class="tag">CLI</span>
+                            <span class="tag">Algorithms</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/davidgrcias/quizinc" target="_blank" class="project-link">
+                                <span class="link-icon">🔗</span>
+                                View Repository
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-img">
+                        <img src="sparta.jpg" alt="Travel Website Design" class="project-image">
+                    </div>
+                    <div class="project-info">
+                        <h3>Travel Website Designing</h3>
+                        <p>Designed and developed a modern travel website prototype with focus on user experience and visual aesthetics. Implemented responsive design, interactive elements, smooth animations, and intuitive navigation to enhance user engagement.</p>
+                        <div class="project-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">UI/UX</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://nicholassubekti.github.io/sparta/" target="_blank" class="project-link">
+                                <span class="link-icon">🌐</span>
+                                Visit Website
+                            </a>
+                            <a href="https://github.com/nicholassubekti/sparta" target="_blank" class="project-link secondary">
+                                <span class="link-icon">💻</span>
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-img">
+                        <img src="webprog.jpg" alt="Web Programming Project" class="project-image">
+                    </div>
+                    <div class="project-info">
+                        <h3>Web Programming Final Exam</h3>
+                        <p>Built a full-stack web application combining PHP backend with React frontend. Features include user authentication, CRUD operations, RESTful API integration, MySQL database management, and modern responsive UI components.</p>
+                        <div class="project-tags">
+                            <span class="tag">PHP</span>
+                            <span class="tag">React</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">CSS</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/KnoWingFly/UASWebProg" target="_blank" class="project-link secondary">
+                                <span class="link-icon">💻</span>
+                                GitHub
+                            </a>
+                                                        <a href="Jurnal Web Prog.pdf" target="_blank" class="project-link secondary">
+                                <span class="link-icon">📄</span>
+                                Journal
+                            </a>
+                                                        <a href="Laporan WebProg.pdf" target="_blank" class="project-link secondary">
+                                <span class="link-icon">📄</span>
+                                Report
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="download" class="contact">
+        <div class="container">
+            <h2 class="section-title fade-in">Download CV</h2>
+            <div class="contact-content fade-in">
+                <div class="cv-card">
+                    <div class="cv-icon">📄</div>
+                    <h3>Curriculum Vitae</h3>
+                    <p>Download my CV to see complete details of my experience, skills, and professional achievements.</p>
+                    
+                    <div class="cv-info">
+                        <div class="info-item">
+                            <span class="icon">📧</span>
+                            <span>nicholassubekti09@gmail.com</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="icon">📱</span>
+                            <span>087786670180</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="icon">📍</span>
+                            <span>Bogor, Indonesia</span>
+                        </div>
+                    </div>
+
+                    <button class="download-btn" onclick="downloadCV()">
+                        <span class="btn-icon">⬇️</span>
+                        Download CV (PDF)
+                    </button>
+                    
+                    <p class="cv-note">Last updated: December 2025</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/samuel-nicholas-subekti-60020228a/" target="_blank" title="LinkedIn">👔</a>
+                <a href="https://github.com/nicholassubekti" target="_blank" title="GitHub">💻</a>
+                <a href="https://wa.me/6287786670180" target="_blank" title="WhatsApp">💬</a>
+                <a href="https://www.instagram.com/nicholassubekti" target="_blank" title="Instagram">📷</a>
+            </div>
+            <p>&copy; 2025 Samuel Nicholas Subekti. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Download CV function
+        function downloadCV() {
+            const btn = document.querySelector('.download-btn');
+            const originalText = btn.innerHTML;
+            
+            btn.innerHTML = '<span class="btn-icon">⏳</span> Downloading...';
+            btn.style.background = 'linear-gradient(135deg, #8b5cf6, #ec4899)';
+            
+            setTimeout(() => {
+                btn.innerHTML = '<span class="btn-icon">✓</span> Download Successful!';
+                btn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+                
+                // Simulate download - Replace with your actual CV link
+                 window.location.href = 'SamuelNicholasSubekti_CV(3).pdf';
+                alert('The download feature will be active once you add your CV file.\n\nReplace the code in the downloadCV() function with:\nwindow.location.href = "path/to/your/cv.pdf";');
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.style.background = '';
+                }, 2000);
+            }, 1500);
+        }
+
+        // Header scroll effect
+        let lastScroll = 0;
+        const header = document.querySelector('header');
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > lastScroll && currentScroll > 80) {
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                header.style.transform = 'translateY(0)';
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // Parallax effect for hero
+        window.addEventListener('scroll', () => {
+            const hero = document.querySelector('.hero');
+            const scrolled = window.pageYOffset;
+            hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+        });
+    </script>
+</body>
+</html>
